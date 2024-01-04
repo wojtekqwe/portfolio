@@ -8,6 +8,7 @@
 }
 
 .nav {
+  position: relative;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -18,11 +19,42 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 100px;
-  padding: 20px 0;
+  padding: 20px 5%;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  width: 100%;
 }
 .nav__logo {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
   font-size: 40px;
   margin-right: auto;
+}
+.nav__logo img {
+  height: 70%;
+}
+
+.nav.active {
+  position: sticky;
+  top: 0;
+  color: white;
+  background-color: #3d6248;
+  z-index: 1;
+  height: 60px;
+  padding: 5px 20px 5px;
+}
+.nav.active .nav__logo img {
+  -webkit-filter: invert(100%) sepia(50%) saturate(0%) hue-rotate(334deg) brightness(117%) contrast(100%);
+          filter: invert(100%) sepia(50%) saturate(0%) hue-rotate(334deg) brightness(117%) contrast(100%);
+  height: 100%;
 }
 
 .icon {
@@ -30,6 +62,99 @@
   font-size: 24px;
   margin: 10px;
   padding: 10px;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  z-index: 2;
+}
+
+.icon.white {
+  color: white;
+}
+
+#form-icon {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+#form-icon .fa-xmark {
+  font-size: 35px;
+}
+
+#form-icon.hide {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.form-container {
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #3d6248;
+  text-align: center;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  left: 100%;
+  height: 100vh;
+  padding-top: 100px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.form-container__title {
+  margin-bottom: 30px;
+}
+
+.form-container.active {
+  left: 0;
+}
+
+.form {
+  width: 80%;
+}
+.form__field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 20px 0;
+}
+.form__field > * {
+  padding: 10px 25px;
+}
+.form__field label {
+  width: 150px;
+  text-align: left;
+}
+.form__field input, .form__field textarea {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border: 1px solid #3d6248;
+  border-radius: 5px;
+}
+.form__field--submit {
+  margin: 50px auto;
+  width: 40%;
+}
+.form__field--submit input {
+  color: white;
+  background: transparent;
+  border: 2px solid white;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 main {

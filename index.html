@@ -13,22 +13,53 @@
     />
   </head>
   <body>
-    <div class="container">
-      <!-- Navigation -->
-      <nav class="nav">
-        <div class="nav__logo">
-          <i class="fa-brands fa-pied-piper-pp"></i>
-        </div>
-        <div class="nav__mode icon">
-          <i class="fa-solid fa-moon"></i>
-          <!-- Icon after click - sun -->
-          <!-- <i class="fa-regular fa-sun"></i> -->
-        </div>
-        <div class="nav__menu icon">
-          <i class="fa-solid fa-bars-staggered"></i>
-        </div>
-      </nav>
+    <!-- Trzeba jeszcze zrobić formularz -->
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav__logo">
+        <!-- <i class="fa-brands fa-pied-piper-pp"></i> -->
+        <img src="./images/logo.png" alt="" />
+      </div>
+      <div class="nav__mode icon" id="mode-icon">
+        <i class="fa-solid fa-moon"></i>
+        <!-- Icon after click - sun -->
+        <!-- <i class="fa-regular fa-sun"></i> -->
+      </div>
+      <div class="nav__menu icon" id="form-icon">
+        <i class="fa-regular fa-address-card"></i>
+      </div>
 
+      <!-- Form  -->
+      <div class="form-container">
+        <div class="form-container__image"></div>
+        <h2 class="form-container__title">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae,
+          magni?
+        </h2>
+        <form action="" class="form-container__fields form">
+          <div class="form__field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" />
+          </div>
+
+          <div class="form__field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" />
+          </div>
+
+          <div class="form__field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="8"></textarea>
+          </div>
+
+          <div class="form__field form__field--submit">
+            <input type="submit" value="Send" />
+          </div>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container">
       <!-- Main header  -->
       <main>
         <header class="header">
@@ -175,5 +206,7 @@
         <p>Copyright © by <span>Name Author</span></p>
       </div>
     </footer>
+
+    <script src="code.js"></script>
   </body>
 </html>
