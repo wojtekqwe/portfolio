@@ -119,19 +119,6 @@
   left: 0;
 }
 
-.form-container.dark {
-  color: #090909;
-}
-.form-container.dark input, .form-container.dark textarea {
-  color: white;
-  background-color: #191919;
-}
-.form-container.dark input[type=submit] {
-  background-color: transparent;
-  border-color: #191919;
-  color: #090909;
-}
-
 .form {
   width: 80%;
 }
@@ -148,8 +135,10 @@
   padding: 10px 25px;
 }
 .form__field label {
-  width: 150px;
+  font-style: italic;
+  font-weight: 700;
   text-align: left;
+  width: 150px;
 }
 .form__field input, .form__field textarea {
   -webkit-box-flex: 1;
@@ -166,6 +155,7 @@
   color: white;
   background: transparent;
   border: 2px solid white;
+  font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -352,7 +342,7 @@ main {
 }
 .socials__link i {
   color: #3d6248;
-  color: #e55fcc;
+  color: #ffffff;
   font-size: 24px;
 }
 
@@ -367,4 +357,34 @@ body {
   margin: 0 auto;
   max-width: 1280px;
   width: 90%;
+}
+
+body.dark {
+  background-color: #090909;
+  color: #ffffff;
+}
+body.dark .section {
+  color: #090909;
+}
+body.dark .skills {
+  background-color: #191919;
+}
+body.dark .form-container {
+  background-color: #090909;
+  color: #3d6248;
+}
+body.dark .form-container input, body.dark .form-container textarea {
+  background-color: transparent;
+  color: #3d6248;
+}
+body.dark .form-container input[type=submit] {
+  background-color: transparent;
+  border-color: #3d6248;
+  color: #3d6248;
+}
+body.dark .footer {
+  color: #090909;
+}
+body.dark .footer i {
+  color: #090909;
 }/*# sourceMappingURL=style.css.map */
