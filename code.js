@@ -6,54 +6,62 @@ const formContainer = document.querySelector(".form-container");
 // Change position and color navigation after scroll
 window.addEventListener("scroll", () => {
   if (scrollY > 30) {
-    console.log(window.scrollY);
     navbar.classList.add("active");
   } else {
     navbar.classList.remove("active");
   }
 });
 
-// Show form
-// Trzeba ogarnąć formularz jakos
-function showForm() {
-  // Disable scroll on form
-  document.body.style.overflow = "hidden";
-
-  // Show form container
-  formContainer.classList.add("active");
-
-  // Change icon color
+function changeIconsColor() {
   formContainer.parentElement.querySelectorAll(".icon").forEach((icon) => {
-    icon.classList.add("white");
+    if (icon.classList.contains("white")) {
+      icon.classList.remove("white");
+    } else {
+      icon.classList.add("white");
+    }
   });
+}
+
+function changeIcon(icon) {
+  const iconImage = icon.querySelector("i");
+  setTimeout(() => {
+    if (iconImage.classList.contains("fa-address-card")) {
+      iconImage.classList.remove("fa-regular", "fa-address-card");
+      iconImage.classList.add("fa-solid", "fa-xmark");
+    } else {
+      iconImage.classList.remove("fa-solid", "fa-xmark");
+      iconImage.classList.add("fa-regular", "fa-address-card");
+    }
+    icon.classList.remove("hide");
+  }, 500);
+}
+
+// Show form
+function showForm() {
+  const icon = formContainer.parentElement.querySelector("#form-icon");
+
+  if (icon.children[0].classList.contains("fa-address-card")) {
+    // Show form container
+    formContainer.classList.add("active");
+
+    changeIcon(icon);
+
+    // Disable scroll on form
+    document.body.style.overflow = "hidden";
+  } else {
+    // Hide form container
+    formContainer.classList.remove("active");
+
+    changeIcon(icon);
+
+    document.body.style.overflow = "auto";
+  }
 
   // Hide form icon
-  const iconForm = formContainer.parentElement.querySelector("#form-icon");
-  iconForm.classList.add("hide");
+  icon.classList.add("hide");
 
-  // Show close icon
-  setTimeout(() => {
-    iconForm
-      .querySelector("i")
-      .classList.remove("fa-regular", "fa-address-card");
-    iconForm.querySelector("i").classList.add("fa-solid", "fa-xmark");
-    iconForm.classList.remove("hide");
-
-    // Close form container
-    // 500s, because transition = 0.5s
-    iconForm.addEventListener("click", () => {
-      formContainer.classList.remove("active");
-
-      document.body.style.overflow = "auto";
-    });
-  }, 500);
-
-  // formBtn.querySelector("i").classList.remove("fa-regular", "fa-address-card");
-  // formBtn.querySelector("i").classList.add("fa-solid", "fa-xmark");
-
-  // formContainer.parentElement.querySelectorAll(".icon").forEach((icon) => {
-  //   icon.style.color = "white";
-  // });
+  // Change icon color
+  changeIconsColor();
 }
 
 formBtn.addEventListener("click", showForm);
