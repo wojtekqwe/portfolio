@@ -2,6 +2,8 @@ const navbar = document.querySelector(".nav");
 const logoImg = document.querySelector(".nav__logo img");
 const formBtn = document.querySelector(".nav__menu");
 const formContainer = document.querySelector(".form-container");
+const iconMode = document.querySelector("#mode-icon");
+const skillsContainer = document.querySelector(".skills");
 
 // Change position and color navigation after scroll
 window.addEventListener("scroll", () => {
@@ -64,4 +66,24 @@ function showForm() {
   changeIconsColor();
 }
 
+function changeMode() {
+  if (iconMode.children[0].classList.contains("fa-moon")) {
+    iconMode.children[0].classList.remove("fa-moon");
+    iconMode.children[0].classList.add("fa-sun");
+    document.body.style.setProperty("background-color", "#090909");
+    document.body.style.setProperty("color", "#ffffff");
+    skillsContainer.style.setProperty("background-color", "#191919");
+    formContainer.classList.add("dark");
+  } else {
+    iconMode.children[0].classList.remove("fa-sun");
+    iconMode.children[0].classList.add("fa-moon");
+    document.body.style.setProperty("background-color", "#ffffff");
+    document.body.style.setProperty("color", "#090909");
+    skillsContainer.style.setProperty("background-color", "#ffffff");
+    formContainer.classList.remove("dark");
+  }
+}
+
 formBtn.addEventListener("click", showForm);
+
+iconMode.addEventListener("click", changeMode);

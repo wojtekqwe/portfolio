@@ -119,6 +119,19 @@
   left: 0;
 }
 
+.form-container.dark {
+  color: #090909;
+}
+.form-container.dark input, .form-container.dark textarea {
+  color: white;
+  background-color: #191919;
+}
+.form-container.dark input[type=submit] {
+  background-color: transparent;
+  border-color: #191919;
+  color: #090909;
+}
+
 .form {
   width: 80%;
 }
@@ -202,6 +215,7 @@ main {
 
 .section {
   background-color: #3d6248;
+  color: white;
   padding: 15% 5% 20%;
   text-align: center;
 }
@@ -309,6 +323,7 @@ main {
 
 .footer {
   background-color: #3d6248;
+  color: white;
   padding: 20px 5% 5px;
   text-align: center;
 }
@@ -339,6 +354,13 @@ main {
   color: #3d6248;
   color: #e55fcc;
   font-size: 24px;
+}
+
+body {
+  background-color: #ffffff;
+  color: #090909;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .container {
