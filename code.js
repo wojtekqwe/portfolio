@@ -4,6 +4,7 @@ const formBtn = document.querySelector(".nav__menu");
 const formContainer = document.querySelector(".form-container");
 const iconMode = document.querySelector("#mode-icon");
 const skillsContainer = document.querySelector(".skills");
+const activitiesContainers = document.querySelectorAll(".activities__activity");
 
 // Change position and color navigation after scroll
 window.addEventListener("scroll", () => {
@@ -66,6 +67,7 @@ function showForm() {
   changeIconsColor();
 }
 
+// Change mode (dark / light)
 function changeMode() {
   if (iconMode.children[0].classList.contains("fa-moon")) {
     iconMode.children[0].classList.remove("fa-moon");
@@ -81,3 +83,25 @@ function changeMode() {
 formBtn.addEventListener("click", showForm);
 
 iconMode.addEventListener("click", changeMode);
+
+function changeSizeAllImages() {
+  activitiesContainers.forEach((activity) => {
+    activity.style.flexGrow = "0";
+    activity.querySelector(".activities__description").classList.remove("show");
+  });
+}
+
+activitiesContainers.forEach((activity) => {
+  activity.addEventListener("click", () => {
+    changeSizeAllImages();
+    activity.style.flexGrow = "1";
+    activity.querySelector(".activities__description").classList.add("show");
+  });
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  document.querySelector("#volleyball").style.flexGrow = "1";
+  document
+    .querySelector("#volleyball .activities__description")
+    .classList.add("show");
+});
