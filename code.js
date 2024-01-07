@@ -1,10 +1,13 @@
+import quatations from "./quatations.json" assert { type: "json" };
+
 const navbar = document.querySelector(".nav");
-const logoImg = document.querySelector(".nav__logo img");
 const formBtn = document.querySelector(".nav__menu");
 const formContainer = document.querySelector(".form-container");
 const iconMode = document.querySelector("#mode-icon");
-const skillsContainer = document.querySelector(".skills");
 const activitiesContainers = document.querySelectorAll(".activities__activity");
+const quatote = document.querySelector("#quote");
+const btnChangeQuatote = document.querySelector(".fa-arrows-rotate");
+const avatarContainer = document.querySelector(".header__avatar");
 
 // Change position and color navigation after scroll
 window.addEventListener("scroll", () => {
@@ -80,10 +83,6 @@ function changeMode() {
   }
 }
 
-formBtn.addEventListener("click", showForm);
-
-iconMode.addEventListener("click", changeMode);
-
 function changeSizeAllImages() {
   activitiesContainers.forEach((activity) => {
     activity.style.flexGrow = "0";
@@ -99,9 +98,27 @@ activitiesContainers.forEach((activity) => {
   });
 });
 
+function generateQuatote() {
+  const randomNumber = Math.floor(Math.random() * quatations.length);
+  quatote.textContent = quatations[randomNumber].quatation;
+}
+
+formBtn.addEventListener("click", showForm);
+
+iconMode.addEventListener("click", changeMode);
+
+avatarContainer.addEventListener("click", () => {
+  setTimeout(() => {
+    avatarContainer.querySelector(".elements").classList.add("show");
+  }, 200);
+});
+
+btnChangeQuatote.addEventListener("click", generateQuatote);
+
 window.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#volleyball").style.flexGrow = "1";
   document
     .querySelector("#volleyball .activities__description")
     .classList.add("show");
+  generateQuatote();
 });

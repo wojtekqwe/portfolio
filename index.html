@@ -69,7 +69,18 @@
             ullam vitae asperiores dolorem a animi veniam perspiciatis.
           </p>
           <div class="header__avatar">
-            <img src="" alt="avatar" />
+            <img src="./images/test.png" alt="avatar" />
+            <div class="header__elements elements">
+              <div class="elements__link">
+                <i class="fa-solid fa-code-compare"></i>
+              </div>
+              <div class="elements__link">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+              <div class="elements__link">
+                <i class="fa-regular fa-file-lines"></i>
+              </div>
+            </div>
           </div>
         </header>
         <!-- Hand -> I don't know if it will be useful -->
@@ -137,12 +148,15 @@
 
     <!-- Section about me - passion etc. Living, learning, & leveling up one day at a time. -->
     <section class="about-me">
-      <h2 class="about-me__title">About me</h2>
-      <p class="about-me__quote">
+      <div class="about-me__primary">
+        <h2 class="about-me__title">About me</h2>
+        <i class="fa-solid fa-arrows-rotate"></i>
+      </div>
+      <div class="about-me__quote">
         <span><i class="fa-solid fa-quote-right"></i></span>
-        Living, learning, & leveling up one day at a time
+        <p id="quote">Living, learning, & leveling up one day at a time</p>
         <span><i class="fa-solid fa-quote-right"></i></span>
-      </p>
+      </div>
 
       <div class="about-me__activity activities">
         <div class="activities__activity" id="tennis">
@@ -208,6 +222,6 @@
       </div>
     </footer>
 
-    <script src="code.js"></script>
+    <script type="module" src="code.js"></script>
   </body>
 </html>
