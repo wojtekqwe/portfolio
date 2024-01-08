@@ -1,8 +1,9 @@
 import quatations from "./quatations.json" assert { type: "json" };
 
 const navbar = document.querySelector(".nav");
-const formBtn = document.querySelector(".nav__menu");
+const btnContact = document.querySelector(".nav__contact");
 const formContainer = document.querySelector(".form-container");
+
 const iconMode = document.querySelector("#mode-icon");
 const activitiesContainers = document.querySelectorAll(".activities__activity");
 const quatote = document.querySelector("#quote");
@@ -18,8 +19,8 @@ window.addEventListener("scroll", () => {
   }
 });
 
-function changeIconsColor() {
-  formContainer.parentElement.querySelectorAll(".icon").forEach((icon) => {
+function changeIconsColor(container) {
+  container.parentElement.querySelectorAll(".icon").forEach((icon) => {
     if (icon.classList.contains("white")) {
       icon.classList.remove("white");
     } else {
@@ -28,15 +29,15 @@ function changeIconsColor() {
   });
 }
 
-function changeIcon(icon) {
-  const iconImage = icon.querySelector("i");
+function changeIcon(icon, hasClass) {
+  const iconElement = icon.querySelector("i");
   setTimeout(() => {
-    if (iconImage.classList.contains("fa-address-card")) {
-      iconImage.classList.remove("fa-regular", "fa-address-card");
-      iconImage.classList.add("fa-solid", "fa-xmark");
+    if (hasClass) {
+      iconElement.classList.remove("fa-regular", "fa-address-card");
+      iconElement.classList.add("fa-solid", "fa-xmark");
     } else {
-      iconImage.classList.remove("fa-solid", "fa-xmark");
-      iconImage.classList.add("fa-regular", "fa-address-card");
+      iconElement.classList.remove("fa-solid", "fa-xmark");
+      iconElement.classList.add("fa-regular", "fa-address-card");
     }
     icon.classList.remove("hide");
   }, 500);
@@ -44,30 +45,29 @@ function changeIcon(icon) {
 
 // Show form
 function showForm() {
-  const icon = formContainer.parentElement.querySelector("#form-icon");
-
-  if (icon.children[0].classList.contains("fa-address-card")) {
+  const iconHasClassCard =
+    this.children[0].classList.contains("fa-address-card");
+  if (iconHasClassCard) {
     // Show form container
     formContainer.classList.add("active");
-
-    changeIcon(icon);
+    changeIcon(this, iconHasClassCard);
 
     // Disable scroll on form
     document.body.style.overflow = "hidden";
   } else {
     // Hide form container
     formContainer.classList.remove("active");
+    changeIcon(this, iconHasClassCard);
 
-    changeIcon(icon);
-
+    //Enable scroll
     document.body.style.overflow = "auto";
   }
 
   // Hide form icon
-  icon.classList.add("hide");
+  this.classList.add("hide");
 
   // Change icon color
-  changeIconsColor();
+  changeIconsColor(formContainer);
 }
 
 // Change mode (dark / light)
@@ -103,7 +103,7 @@ function generateQuatote() {
   quatote.textContent = quatations[randomNumber].quatation;
 }
 
-formBtn.addEventListener("click", showForm);
+btnContact.addEventListener("click", showForm);
 
 iconMode.addEventListener("click", changeMode);
 
