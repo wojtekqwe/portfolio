@@ -70,7 +70,6 @@ function checkForm() {
     // clearForm();
     document.querySelector("form").submit();
     console.log("Send form!!");
-    console.log("correct data");
   } else {
     console.log("bad data");
   }
