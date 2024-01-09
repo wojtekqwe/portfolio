@@ -1,4 +1,5 @@
 import quatations from "./quatations.json" assert { type: "json" };
+import { checkForm } from "./validators.js";
 
 const navbar = document.querySelector(".nav");
 const btnContact = document.querySelector(".nav__contact");
@@ -9,6 +10,8 @@ const activitiesContainers = document.querySelectorAll(".activities__activity");
 const quatote = document.querySelector("#quote");
 const btnChangeQuatote = document.querySelector(".fa-arrows-rotate");
 const avatarContainer = document.querySelector(".header__avatar");
+
+const sendBtn = document.querySelector("#send-form");
 
 // Change position and color navigation after scroll
 window.addEventListener("scroll", () => {
@@ -122,3 +125,6 @@ window.addEventListener("DOMContentLoaded", () => {
     .classList.add("show");
   generateQuatote();
 });
+
+// sendBtn.addEventListener("click", checkLengthInputs);
+sendBtn.addEventListener("click", checkForm);
