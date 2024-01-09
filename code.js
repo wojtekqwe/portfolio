@@ -1,5 +1,5 @@
 import quatations from "./quatations.json" assert { type: "json" };
-import { checkForm } from "./validators.js";
+import { checkToSendForm } from "./validators.js";
 
 const navbar = document.querySelector(".nav");
 const btnContact = document.querySelector(".nav__contact");
@@ -126,5 +126,4 @@ window.addEventListener("DOMContentLoaded", () => {
   generateQuatote();
 });
 
-// sendBtn.addEventListener("click", checkLengthInputs);
-sendBtn.addEventListener("click", checkForm);
+sendBtn.addEventListener("click", checkToSendForm);

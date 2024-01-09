@@ -33,7 +33,18 @@
           <br />
           Go ahead and contact me!
         </h2>
-        <form action="" class="form-container__fields form">
+        <form
+          class="form-container__fields form"
+          action="https://formsubmit.io/send/wojtekqwe@onet.pl"
+          method="POST"
+        >
+          <!-- Przejscie do strony po wyslaniu formularza -->
+          <input
+            name="_redirect"
+            type="hidden"
+            id="name"
+            value="https:/facebook.com"
+          />
           <div class="form__field field">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" />
