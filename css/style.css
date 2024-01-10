@@ -216,7 +216,7 @@
   right: 0;
 }
 
-.field.error input, .field.error textarea {
+body .form-container .field.error input, body .form-container .field.error textarea {
   border-color: #e55fcc;
 }
 
@@ -280,8 +280,10 @@ main {
 .header__title {
   font-size: 42px;
   padding: 0 20px;
-  margin: 0;
+  margin: 0 0 20px;
   font-weight: 700;
+  letter-spacing: 3px;
+  line-height: 100%;
 }
 .header__avatar {
   cursor: pointer;
@@ -293,13 +295,11 @@ main {
   padding: 0 20px;
   margin: 20px 0 50px;
   font-weight: 300;
+  font-style: italic;
+  letter-spacing: 1px;
 }
 
 .elements {
-  position: absolute;
-  height: 100%;
-  top: 0;
-  right: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -310,6 +310,10 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: absolute;
+  height: 100%;
+  right: 50%;
+  top: 0;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -340,6 +344,17 @@ main {
       justify-content: space-around;
 }
 
+@media screen and (min-width: 1200px) {
+  .header {
+    height: calc(100vh - 150px);
+  }
+  .header__title {
+    font-size: 48px;
+  }
+  .subtitle {
+    font-size: 24px;
+  }
+}
 .section {
   background-color: #3d6248;
   color: white;
@@ -576,6 +591,11 @@ body {
   width: 90%;
 }
 
+@media screen and (min-width: 992px) {
+  .container {
+    width: 80%;
+  }
+}
 body.dark {
   background-color: #090909;
   color: #ffffff;

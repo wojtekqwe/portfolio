@@ -70,6 +70,8 @@ function checkForm() {
     // clearForm();
     document.querySelector("form").submit();
     console.log("Send form!!");
+
+    window.location.href = "./thanks.html";
   } else {
     console.log("bad data");
   }
