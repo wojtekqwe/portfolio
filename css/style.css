@@ -513,7 +513,7 @@ main {
 .about-me__title {
   font-size: 24px;
   padding: 10px;
-  margin: 10px;
+  margin: 10px 10px 10px 50px;
   font-weight: 700;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -561,46 +561,56 @@ main {
 }
 
 .activities__activity {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 15px;
   margin: 0 5px;
   -webkit-transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
   transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
   width: 10%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+}
+.activities__activity i {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-.activities__activity i {
   background-color: #ffffff;
   border-radius: 50%;
   color: #3d6248;
   margin-bottom: 10px;
   padding: 10px;
+  width: 50px;
 }
 .activities__description {
   display: block;
   height: 0;
-  width: 0;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  width: 0;
 }
 .activities__description.show {
   background: white;
   border-radius: 10px;
+  height: 30%;
   margin: 0 5px 10px 5px;
   padding: 5px 10px;
   text-align: left;
   width: 80%;
-  height: 30%;
 }
 .activities #tennis {
   background-image: url("../images/tennis.jpg");
@@ -621,6 +631,78 @@ main {
   background-image: url("../images/garden.jpg");
 }
 
+@media screen and (min-width: 768px) {
+  .about-me__title {
+    font-size: 30px;
+  }
+  .about-me__primary i {
+    font-size: 24px;
+  }
+  .about-me__quote {
+    font-size: 20px;
+  }
+  .about-me__activity {
+    height: 300px;
+  }
+  .activities__activity {
+    cursor: pointer;
+  }
+  .activities__description.show {
+    height: 20%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .about-me__title {
+    font-size: 36px;
+  }
+  .about-me__primary i {
+    font-size: 28px;
+  }
+  .about-me__quote {
+    font-size: 22px;
+  }
+  .about-me__activity {
+    height: 350px;
+  }
+  .activities {
+    height: 350px;
+  }
+  .activities__description.show {
+    font-size: 24px;
+    margin-left: 20px;
+  }
+  .activities__activity i {
+    font-size: 20px;
+    height: 80px;
+    width: 80px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .about-me__title {
+    font-size: 42px;
+  }
+  .about-me__primary i {
+    font-size: 32px;
+  }
+  .about-me__quote {
+    font-size: 24px;
+  }
+  .about-me__activity {
+    height: 400px;
+  }
+  .activities {
+    height: 400px;
+  }
+  .activities__description.show {
+    height: 25%;
+    font-size: 26px;
+  }
+  .activities__activity i {
+    font-size: 40px;
+    height: 100px;
+    width: 100px;
+  }
+}
 .footer {
   background-color: #3d6248;
   color: white;
@@ -685,6 +767,9 @@ body.dark .header .subtitle {
   color: #d9d9d9;
 }
 body.dark .section {
+  color: #090909;
+}
+body.dark .section__subtitle {
   color: #090909;
 }
 body.dark .skills {

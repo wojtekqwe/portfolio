@@ -5,24 +5,27 @@ const navbar = document.querySelector(".nav");
 const btnContact = document.querySelector(".nav__contact");
 const formContainer = document.querySelector(".form-container");
 const iconMode = document.querySelector("#mode-icon");
-
 const avatarContainer = document.querySelector(".header__avatar");
-
+const btnChangeQuote = document.querySelector(".fa-arrows-rotate");
+const quote = document.querySelector("#quote");
 const activitiesContainers = document.querySelectorAll(".activities__activity");
-const quatote = document.querySelector("#quote");
-const btnChangeQuatote = document.querySelector(".fa-arrows-rotate");
-
 const sendBtn = document.querySelector("#send-form");
 
-// Change position and color navigation after scroll
-window.addEventListener("scroll", () => {
-  if (scrollY > 30) {
-    navbar.classList.add("active");
-  } else {
-    navbar.classList.remove("active");
-  }
-});
+// Change size all images
+function changeSizeAllImages() {
+  activitiesContainers.forEach((activity) => {
+    activity.style.flexGrow = "0";
+    activity.querySelector(".activities__description").classList.remove("show");
+  });
+}
 
+// Generate ranodm quote
+function generateQuote() {
+  const randomNumber = Math.floor(Math.random() * quatations.length);
+  quote.textContent = quatations[randomNumber].quatation;
+}
+
+// Change icons color in navbar
 function changeIconsColor(container) {
   container.parentElement.querySelectorAll(".icon").forEach((icon) => {
     if (icon.classList.contains("white")) {
@@ -33,6 +36,7 @@ function changeIconsColor(container) {
   });
 }
 
+// Change icon in navbar
 function changeIcon(icon, hasClass) {
   const iconElement = icon.querySelector("i");
   setTimeout(() => {
@@ -46,37 +50,6 @@ function changeIcon(icon, hasClass) {
     icon.classList.remove("hide");
   }, 500);
 }
-
-function changeSizeAllImages() {
-  activitiesContainers.forEach((activity) => {
-    activity.style.flexGrow = "0";
-    activity.querySelector(".activities__description").classList.remove("show");
-  });
-}
-
-activitiesContainers.forEach((activity) => {
-  activity.addEventListener("click", () => {
-    changeSizeAllImages();
-    activity.style.flexGrow = "1";
-    activity.querySelector(".activities__description").classList.add("show");
-  });
-});
-
-function generateQuatote() {
-  const randomNumber = Math.floor(Math.random() * quatations.length);
-  quatote.textContent = quatations[randomNumber].quatation;
-}
-
-btnChangeQuatote.addEventListener("click", generateQuatote);
-
-window.addEventListener("DOMContentLoaded", () => {
-  document.querySelector("#volleyball").style.flexGrow = "1";
-  document
-    .querySelector("#volleyball .activities__description")
-    .classList.add("show");
-  generateQuatote();
-});
-// LAST
 
 // Show form
 function showForm() {
@@ -118,12 +91,40 @@ function changeMode() {
   }
 }
 
+// Change position and color navigation after scroll
+window.addEventListener("scroll", () => {
+  if (scrollY > 30) {
+    navbar.classList.add("active");
+  } else {
+    navbar.classList.remove("active");
+  }
+});
+
+// Event listener on buttons
 avatarContainer.addEventListener("click", () => {
   setTimeout(() => {
     avatarContainer.querySelector(".elements").classList.add("show");
   }, 200);
 });
 
+activitiesContainers.forEach((activity) => {
+  activity.addEventListener("click", () => {
+    changeSizeAllImages();
+    activity.style.flexGrow = "1";
+    activity.querySelector(".activities__description").classList.add("show");
+  });
+});
+
+btnChangeQuote.addEventListener("click", generateQuote);
 sendBtn.addEventListener("click", checkToSendForm);
 btnContact.addEventListener("click", showForm);
 iconMode.addEventListener("click", changeMode);
+
+// Set main image in section 'About me' and generate quote in load page
+window.addEventListener("DOMContentLoaded", () => {
+  document.querySelector("#volleyball").style.flexGrow = "1";
+  document
+    .querySelector("#volleyball .activities__description")
+    .classList.add("show");
+  generateQuote();
+});
