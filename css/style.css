@@ -39,6 +39,7 @@
   margin-right: auto;
 }
 .nav__logo img {
+  cursor: default;
   height: 70%;
 }
 
@@ -95,12 +96,6 @@
     cursor: pointer;
     -webkit-transform: rotate(15deg);
             transform: rotate(15deg);
-    -webkit-transition: 0.25s;
-    transition: 0.25s;
-  }
-  .nav__logo:hover {
-    -webkit-transform: rotate(0);
-            transform: rotate(0);
   }
 }
 @media screen and (min-width: 1200px) {
@@ -497,29 +492,65 @@ main {
   display: -ms-flexbox;
   display: flex;
 }
-.about-me__primary i {
+.about-me__primary div {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 60px;
+  margin: 0 10px;
+  padding: 10px;
+  width: 60px;
+}
+.about-me__primary div i {
   cursor: pointer;
   color: #3d6248;
   font-size: 20px;
-  margin: 0 10px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  padding: 10px;
 }
-.about-me__primary i:hover {
+.about-me__primary div i:hover {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
+.about-me__quote {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100px;
+  margin-bottom: 50px;
+}
 .about-me__title {
   font-size: 24px;
-  padding: 10px;
-  margin: 10px 10px 10px 50px;
+  padding: 10px 0 10px 10px;
+  margin: 10px 0 10px 60px;
   font-weight: 700;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
-.about-me__quote {
+.about-me__activity {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 200px;
+}
+
+.quote-container__quote {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -529,35 +560,88 @@ main {
   color: #3d6248;
   font-size: 18px;
   padding: 0 20px;
-  margin: 10px 0 30px;
+  margin: 10px 0 0;
   font-weight: 300;
   font-style: italic;
 }
-.about-me__quote p {
+.quote-container__quote p {
   margin: 0 5px;
 }
-.about-me__quote i {
+.quote-container__quote i {
   font-size: 10px;
 }
-.about-me__quote span:first-child {
+.quote-container__quote span:first-child {
   -ms-flex-item-align: end;
       align-self: flex-end;
   -webkit-transform: translateY(6px);
           transform: translateY(6px);
 }
-.about-me__quote span:last-child {
+.quote-container__quote span:last-child {
   -ms-flex-item-align: start;
       align-self: flex-start;
   -webkit-transform: translateY(-6px);
           transform: translateY(-6px);
 }
-.about-me__activity {
+.quote-container__loader i {
+  font-size: 0px;
+}
+
+.quote-container.load .quote-container__quote {
+  display: none;
+}
+.quote-container.load .loader {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  height: 200px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 10px;
+}
+.quote-container.load .loader__wave {
+  width: 5px;
+  height: 60px;
+  background: linear-gradient(45deg, #3d6248, #fff);
+  margin: 10px;
+  -webkit-animation: wave 1s linear infinite both;
+          animation: wave 1s linear infinite both;
+  border-radius: 20px;
+}
+.quote-container.load .loader__wave:nth-child(2) {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+.quote-container.load .loader__wave:nth-child(3) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.quote-container.load .loader__wave:nth-child(4) {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.quote-container.load .loader__wave:nth-child(5) {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+.quote-container.load .loader__wave:nth-child(6) {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+.quote-container.load .loader__wave:nth-child(7) {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+.quote-container.load .loader__wave:nth-child(8) {
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
+}
+.quote-container.load .loader__wave:nth-child(9) {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+.quote-container.load .loader__wave:nth-child(10) {
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
 }
 
 .activities__activity {
@@ -631,6 +715,35 @@ main {
   background-image: url("../images/garden.jpg");
 }
 
+@-webkit-keyframes wave {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes wave {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
 @media screen and (min-width: 768px) {
   .about-me__title {
     font-size: 30px;
@@ -638,11 +751,11 @@ main {
   .about-me__primary i {
     font-size: 24px;
   }
-  .about-me__quote {
-    font-size: 20px;
-  }
   .about-me__activity {
     height: 300px;
+  }
+  .quote-container__quote {
+    font-size: 20px;
   }
   .activities__activity {
     cursor: pointer;
@@ -658,11 +771,11 @@ main {
   .about-me__primary i {
     font-size: 28px;
   }
-  .about-me__quote {
-    font-size: 22px;
-  }
   .about-me__activity {
     height: 350px;
+  }
+  .quote-container__quote {
+    font-size: 22px;
   }
   .activities {
     height: 350px;
@@ -684,11 +797,11 @@ main {
   .about-me__primary i {
     font-size: 32px;
   }
-  .about-me__quote {
-    font-size: 24px;
-  }
   .about-me__activity {
     height: 400px;
+  }
+  .quote-container__quote {
+    font-size: 24px;
   }
   .activities {
     height: 400px;

@@ -22,7 +22,13 @@ function changeSizeAllImages() {
 // Generate ranodm quote
 function generateQuote() {
   const randomNumber = Math.floor(Math.random() * quatations.length);
-  quote.textContent = quatations[randomNumber].quatation;
+  const container = quote.closest(".quote-container");
+
+  container.classList.add("load");
+  setTimeout(() => {
+    container.classList.remove("load");
+    quote.textContent = quatations[randomNumber].quatation;
+  }, 2000);
 }
 
 // Change icons color in navbar
