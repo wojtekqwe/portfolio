@@ -1,5 +1,6 @@
 import quatations from "./quatations.json" assert { type: "json" };
 import { checkToSendForm } from "./validators.js";
+import { changeMode } from "./change-mode.js";
 
 const navbar = document.querySelector(".nav");
 const btnContact = document.querySelector(".nav__contact");
@@ -82,19 +83,6 @@ function showForm() {
 
   // Change icon color
   changeIconsColor(formContainer);
-}
-
-// Change mode (dark / light)
-function changeMode() {
-  if (iconMode.children[0].classList.contains("fa-moon")) {
-    iconMode.children[0].classList.remove("fa-moon");
-    iconMode.children[0].classList.add("fa-sun");
-    document.body.classList.add("dark");
-  } else {
-    iconMode.children[0].classList.remove("fa-sun");
-    iconMode.children[0].classList.add("fa-moon");
-    document.body.classList.remove("dark");
-  }
 }
 
 // Change position and color navigation after scroll

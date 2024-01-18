@@ -1,18 +1,7 @@
+import { changeMode } from "./change-mode.js";
+
 const backBtn = document.querySelector("#back");
 const iconMode = document.querySelector("#mode-icon");
-
-// Change mode (dark / light)
-function changeMode() {
-  if (iconMode.children[0].classList.contains("fa-moon")) {
-    iconMode.children[0].classList.remove("fa-moon");
-    iconMode.children[0].classList.add("fa-sun");
-    document.body.classList.add("dark");
-  } else {
-    iconMode.children[0].classList.remove("fa-sun");
-    iconMode.children[0].classList.add("fa-moon");
-    document.body.classList.remove("dark");
-  }
-}
 
 backBtn.addEventListener("click", () => {
   window.location.href = "./index.html";
