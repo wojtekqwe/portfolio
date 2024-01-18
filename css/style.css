@@ -601,7 +601,7 @@ main {
 .quote-container.load .loader__wave {
   width: 5px;
   height: 60px;
-  background: linear-gradient(45deg, #3d6248, #fff);
+  background: linear-gradient(45deg, #3d6248, #ffffff);
   margin: 10px;
   -webkit-animation: wave 1s linear infinite both;
           animation: wave 1s linear infinite both;
@@ -913,6 +913,9 @@ body.dark .activities__description {
 }
 body.dark .about-me {
   color: #3d6248;
+}
+body.dark .quote-container.load .loader__wave {
+  background: linear-gradient(45deg, #3d6248, #090909);
 }
 body.dark .elements__link i {
   color: #090909;
