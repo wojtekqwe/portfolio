@@ -66,14 +66,9 @@ function checkForm() {
     data.name !== undefined &&
     data.message !== undefined
   ) {
-    // sendForm()
-    // clearForm();
     document.querySelector("form").submit();
-    console.log("Send form!!");
 
     window.location.href = "./thanks.html";
-  } else {
-    console.log("bad data");
   }
 }
 
